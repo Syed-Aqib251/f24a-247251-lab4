@@ -24,8 +24,14 @@
       </div>
       <p class="help">Leave Paid empty to represent nothing paid.</p>
     </form>
+    <section id="receipt" class="receipt" aria-label="Till result" aria-live="polite" hidden>
+      <h3>Payment result</h3>
+      <p class="result-line">Change: <output id="change"></output></p>
+      <p id="owed-line" hidden>Still owed: <output id="owed"></output></p>
+      <p id="half-line" hidden>Half of the change: <output id="half-change"></output></p>
+    </section>
   </main>
   <footer>Roll number 247251 · BSCS F24 A</footer>
-
+  <script src="till.js"></script>
 </body>
 </html>
