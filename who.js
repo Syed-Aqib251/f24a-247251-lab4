@@ -8,13 +8,27 @@ personForm.addEventListener("submit", function (event) {
   if (name === "") return;
   const person = { name: name, inShop: event.submitter.value === "here" };
   people.push(person);
-  const tableRow = document.createElement("tr");
-  for (const value of [person.name, person.inShop]) {
-    const cell = document.createElement("td");
-    cell.textContent = String(value);
-    tableRow.appendChild(cell);
-  }
-  peopleBody.appendChild(tableRow);
+  drawPeople();
   personForm.reset();
   document.getElementById("person-name").focus();
 });
+
+function drawPeople() {
+  peopleBody.replaceChildren();
+  let count = 0;
+  for (const person of people) {
+    // Destructuring reads the name and the answer together from one person.
+    const { name, inShop } = person;
+    const tableRow = document.createElement("tr");
+    for (const value of [name, inShop]) {
+      const cell = document.createElement("td");
+      cell.textContent = String(value);
+      tableRow.appendChild(cell);
+    }
+    peopleBody.appendChild(tableRow);
+    if (inShop === true) count += 1;
+  }
+  document.getElementById("in-count").textContent = String(count);
+}
+
+drawPeople();
