@@ -22,6 +22,16 @@
         <tbody id="sheet-body"><tr><td colspan="5" class="empty">No items added yet.</td></tr></tbody>
       </table>
     </div>
+    <section class="summary" aria-label="Total and kinds" aria-live="polite">
+      <p class="total">Total: <output id="total">0</output></p>
+      <div class="kinds">
+        <p>Kind of total: <output id="total-kind">number</output></p>
+        <p>Kind of latest Note: <output id="note-kind">No row yet</output></p>
+        <p>Price text matches number (==): <output id="price-match">No row yet</output></p>
+        <p>Price text and number have the same kind (===): <output id="price-same-kind">No row yet</output></p>
+        <p id="nan-kind-line" hidden>Kind of NaN Line: <output id="nan-kind">number</output></p>
+      </div>
+    </section>
     <form id="item-form">
       <h3>Add an item</h3>
       <div class="fields">

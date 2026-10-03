@@ -21,6 +21,7 @@ itemForm.addEventListener("submit", function (event) {
   // Multiplication keeps NaN on the row when priceText is not numeric.
   rows.push(row);
   drawSheet();
+  drawSummary(row);
   itemForm.reset();
   document.getElementById("item").focus();
 });
@@ -39,4 +40,24 @@ function drawSheet() {
     }
     sheetBody.appendChild(tableRow);
   }
+}
+
+
+function drawSummary(latestRow) {
+  let total = 0;
+  for (const row of rows) {
+    if (typeof row.line === "number" && !Number.isNaN(row.line)) {
+      total += row.line;
+    }
+  }
+  const priceText = latestRow.price;
+  const priceNumber = Number(priceText);
+  document.getElementById("total").textContent = String(total);
+  document.getElementById("total-kind").textContent = typeof total;
+  document.getElementById("note-kind").textContent = typeof latestRow.note;
+  // These comparisons intentionally demonstrate loose and strict equality.
+  document.getElementById("price-match").textContent = String(priceText == priceNumber);
+  document.getElementById("price-same-kind").textContent = String(priceText === priceNumber);
+  document.getElementById("nan-kind-line").hidden = !Number.isNaN(latestRow.line);
+  document.getElementById("nan-kind").textContent = typeof latestRow.line;
 }
