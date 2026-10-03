@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canteen | Who is in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="header-inner"><h1>Canteen</h1><p>Lab 04 · Types in a file</p></div></header>
+  <nav aria-label="Canteen pages">
+    <a href="index.html">Sheet</a>
+    <a href="till.html">Till</a>
+    <a href="who.html" aria-current="page">Who is in</a>
+  </nav>
+  <main>
+    <h2>Who is in</h2>
+    <p class="intro">Add a person and record whether they are in the canteen.</p>
+    <form id="person-form" class="person-form">
+      <div class="fields">
+        <label>Name<input id="person-name" name="name" type="text" placeholder="Enter a name" required></label>
+        <button type="submit" value="here">Here</button>
+        <button type="submit" value="out" class="secondary">Out</button>
+      </div>
+    </form>
+    <div class="table-wrap">
+      <table aria-label="People in the canteen">
+        <thead><tr><th>Name</th><th>In the shop</th></tr></thead>
+        <tbody id="people-body"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer>Roll number 247251 · BSCS F24 A</footer>
+  <script src="who.js"></script>
+</body>
+</html>
