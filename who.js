@@ -1,4 +1,5 @@
-const people = [];
+// The first person has a name but no inShop property.
+const people = [{ name: "Visitor" }];
 const personForm = document.getElementById("person-form");
 const peopleBody = document.getElementById("people-body");
 
