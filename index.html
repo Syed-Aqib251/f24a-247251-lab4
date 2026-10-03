@@ -22,6 +22,16 @@
         <tbody id="sheet-body"><tr><td colspan="5" class="empty">No items added yet.</td></tr></tbody>
       </table>
     </div>
+    <form id="item-form">
+      <h3>Add an item</h3>
+      <div class="fields">
+        <label>Item<input id="item" name="item" type="text" placeholder="e.g. Samosa"></label>
+        <label>Quantity<input id="quantity" name="quantity" type="number" step="any" placeholder="e.g. 2" required></label>
+        <label>Price<input id="price" name="price" type="text" placeholder="e.g. 50 or abc"></label>
+        <button type="submit">Add</button>
+      </div>
+      <p class="help">Try a price such as abc, or leave the item empty, to see NaN and undefined.</p>
+    </form>
   </main>
   <footer>Roll number 247251 · BSCS F24 A</footer>
   <script src="script.js"></script>
