@@ -5,11 +5,14 @@ tillForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const bill = Number(document.getElementById("bill").value);
   const paidText = document.getElementById("paid").value;
-  paid = Number(paidText);
+  // An empty input stores null, rather than the number zero.
+  paid = paidText === "" ? null : Number(paidText);
 
   // This call is above the function declaration: declarations are hoisted.
   const change = calculateChange(bill, paid);
   document.getElementById("receipt").hidden = false;
+  document.getElementById("stored-paid").textContent = String(paid);
+  document.getElementById("paid-kind").textContent = typeof paid;
   document.getElementById("change").textContent = String(change);
   document.getElementById("owed-line").hidden = !(bill > paid);
   document.getElementById("owed").textContent = String(bill - paid);
