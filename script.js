@@ -9,12 +9,16 @@ itemForm.addEventListener("submit", function (event) {
   const quantity = Number(document.getElementById("quantity").value);
   const priceText = document.getElementById("price").value;
   const row = {
-    item: itemText,
     quantity: quantity,
     price: priceText,
     line: quantity * priceText,
     note: priceText + quantity
   };
+  // An empty item has no item property; reading it produces undefined.
+  if (itemText !== "") {
+    row.item = itemText;
+  }
+  // Multiplication keeps NaN on the row when priceText is not numeric.
   rows.push(row);
   drawSheet();
   itemForm.reset();
@@ -29,6 +33,9 @@ function drawSheet() {
       const cell = document.createElement("td");
       cell.textContent = String(value);
       tableRow.appendChild(cell);
+    }
+    if (Number.isNaN(row.line)) {
+      tableRow.children[3].classList.add("bad-line");
     }
     sheetBody.appendChild(tableRow);
   }
